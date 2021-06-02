@@ -1,0 +1,20 @@
+Factory Default Device
+
+! U1 setvar "device.restore_defaults" "all"
+
+! U1 do "device.restore_defaults" "bluetooth"
+! U1 do "device.restore_defaults" "ip"
+! U1 do "device.restore_defaults" "wlan"
+! U1 do "device.restore_defaults" "power"
+! U1 do "device.restore_defaults" "display"
+
+
+
+The ZQ500, QLn series and the iMZ allows the ^JUF and ^JUN command to be sent to restore 
+parameters to their factory default condition. 
+ 
+Example:  ^XA^JUF^XZ^XA^JUN^XZ^XA^JUS^XZ
+
+Please note that the iMZ uses line print mode by default.  The command ! U1 setvar "device.languages"  command may need to be adjusted to se the iMZ back to ZPL if necessary.
+
+! U1 setvar "device.languages" "zpl"

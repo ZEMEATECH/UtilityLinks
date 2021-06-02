@@ -1,0 +1,52 @@
+
+			--.--.--.--.--.--.--.--.--.--.--. Printer Network Commands --.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.
+
+Set up a WLAN printer
+! U1 setvar "ip.dhcp.enable" "on"
+! U1 setvar "wlan.ip.protocol" "dhcp"
+! U1 setvar "wlan.essid" "ZGuest"
+! U1 setvar "wlan.leap_mode" "off"
+! U1 setvar "wlan.kerberos.mode" "off"
+! U1 setvar "wlan.encryption_mode" "off"
+! U1 setvar "wlan.8021x.enable" "off"
+! U1 setvar "wlan.operating_mode" "infrastructure"
+! U1 setvar "wlan.allowed_band" "all"
+! U1 setvar "wlan.international_mode" "off"
+! U1 setvar "wlan.wpa.authentication" "psk"
+! U1 setvar "wlan.wpa.enable" "on"
+! U1 setvar "wlan.wpa.psk" "083A495180CF4212BBEC44952C9C0F3CC82C9CC73D7CCB606462883B68CF36A0"
+! U1 do "device.reset" "" 
+
+Set up an Ethernet IPaddress
+! U1 setvar "internal_wired.ip.netmask" "value"
+! U1 setvar "internal_wired.ip.addr" "10.14.4.235"
+! U1 setvar ip.addr ""
+! U1 setvar "internal_wired.ip.addr" "172.22.32.138"
+! U1 setvar "internal_wired.ip.netmask" "255.255.240.0"
+! U1 setvar "device.prompted_network_reset" "yes"
+! U1 do "device.reset" ""
+
+Increase Wi-Fi signal
+! U1 setvar "wlan.ip.arp_interval" "25"
+! U1 setvar "wlan.ip.timeout.value" "3600"
+! U1 setvar "wlan.roam.signal" "25"
+! U1 setvar "wlan.pmf" "disabled"
+! U1 setvar "device.prompted_network_reset" "yes"
+! U1 do "device.reset" ""
+
+
+Disable unnecesary protocols
+! U1 setvar "ip.ftp.enable" "off"
+! U1 setvar "ip.lpd.enable" "off" 
+! U1 setvar "ip.smtp.enable" "off"
+! U1 setvar "ip.pop3.enable" "off"
+! U1 setvar "ip.snmp.enable" "off"
+! U1 setvar "ip.ftp.enable" "off"
+! U1 setvar "ip.https.enable" "off"
+! U1 setvar "device.prompted_network_reset" "yes"
+! U1 do "device.reset" ""
+
+Enable all channels
+! U1 setvar "wlan.user_channel_list" "1,2,3,4,5,6,7,8,9,10,11,36,40,44,48,52,56,60,64,100,104,108,112,116,132,136,140,149,153,157,161,165,all"      
+! U1 setvar "device.prompted_network_reset" "yes"
+! U1 do "device.reset" ""

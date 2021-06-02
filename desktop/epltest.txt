@@ -1,0 +1,7 @@
+
+OFr
+N
+ZB
+A165,30,0,3,2,2,N,"EPL Zebra Test"
+P1
+N

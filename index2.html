@@ -1,0 +1,138 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="zlogo1.ico">
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="scripts/BrowserPrint-1.0.4.min.js"></script>
+<script type="text/javascript" src="scripts/DevDemo.js"></script>
+<script type="text/javascript">
+$(document).ready(setup_web_print);
+</script>
+</head>
+<body>
+
+
+<div id=banner>
+	<center>
+			<a href="http://www.zebra.com" target="_blank"><img src="pictures/imgz2.png" id=img_zebra1 alt="Zebra Black Logo"></a>
+			<h1 href="index.html">UTILITY LINKS</h1>	
+	</center>
+		    <h2 id="top-menu">		
+		    <p id="clock"></p>
+		<center>
+			<a class= "button-top" href="https://secure3.entertimeonline.com/ta/6029195.hcm?rnd=TND&showAdmin=1&Ext=login&sft=TIOZTLYMGA" target="_blank">| Kronos </a>
+			<a class= "button-top" href="https://zebra.lightning.force.com/lightning/o/Case/list?filterName=00Bi0000006Uxk2EAC" target="_blank">| Sales Force </a>
+			<a class= "button-top" href="https://home-c16.incontact.com/inContact/Default.aspx" target="_blank">| InContact </a>
+			<a class= "button-top" href="https://supportcommunity.zebra.com" target="_blank">| Support Community </a>
+			<a class= "button-top" href="https://zebra-my.sharepoint.com/personal/hr2598_zebra_com/_layouts/15/onedrive.aspx" target="_blank">| One Drive </a>
+			<a class= "button-top" href="https://www.zebra.com/us/en/forms/license-reset-request.html" target="_blank">| License Reset Form</a>
+			<a class= "button-top" href="useful/nontech.txt" target="_blank">| EMEA Non Tech Queues</a>
+			<a class= "button-top" href="https://www.zebra.com/us/en/support-downloads/request-repair.html" target="_blank">| Request RMA</a>
+			<a class= "button-top" href="https://zebra-my.sharepoint.com/:x:/r/personal/vnt867_zebra_com/Documents/AAA%20Updated/EMEA%20AIT%20Tech%20Team/EMEA_TECH_AIT_SHIFT_PLAN.xlsx?d=w527199cdcfd64883b17ad5a1815f9b04&csf=1&e=OSZWJG" target="_blank">| Shift Plan</a>
+		</center>
+		</h2>
+	</div>
+	<div class=rboard>
+	<ul id="copyme">		
+		<p>Hello!
+		<p>Do you have any updates/comments about this case?
+		<p>Did my previous advice help you to solve your inquiry?
+		<p>Best Regards,
+		<p>Hector Javier Aguilar Reyes
+		<p>Technical Support L2
+		<p>Zebra Technologies
+		<p>+420 239 014 942 (English)
+		<a class=v href="mailto:tsemea@zebra"><p>tsemea@zebra.com</p></a>
+		<a class=v href="https://www.zebra.com" target="_blank"><p>www.zebra.com</p></a>
+		<a class=v href="https://supportcommunity.zebra.com" target="_blank"><p>supportcommunity.zebra.com</p></a>
+	</ul>
+	<button class="action-button-small" onclick="copyClipboard()">Copy</button>
+</div>
+<center>
+	<div class=top-board>
+  <table>	
+	<th><a class=home-board onClick='showSoftware();'>Software</a></th>
+	<th><a class=home-board onClick='showTabletop();'>Tabletop</a></th>
+	<th><a class=home-board onClick='showMobile();'>Mobile</a></th>
+	<th><a class=home-board onClick='showCard();'>Card</a></th>
+	<th><a class=home-board onClick='showDesktop();'>Desktop</a></th>
+	<th><a class=home-board onClick='showKiosk();'>Kiosk</a></th>
+	<th><a class=home-board onClick='showLinks();'>Links</a></th>
+	<th><a class=home-board onClick='showDocuments();'>Documents/Articles</a></th>
+	<th><a class=home-board onClick='showProg();'>Programming</a></th>
+	</tr>
+</table>
+
+</div>
+<div id=showKiosk style= display:none;><iframe src="kiosk.html"></iframe></div>
+<div id=showTabletop style= display:none;><iframe src="tabletop.html"></iframe></div>
+<div id=showMobile style= display:none;><iframe src="mobile.html"></iframe></div>
+<div id=showCard style= display:none;><iframe src="card.html"></iframe></div>
+<div id=showDesktop style= display:none;><iframe src="desktop.html"></iframe></div>
+<div id=showLinks style= display:none;><iframe src="links.html"></iframe></div>
+<div id=showDocuments style= display:none;><iframe src="documents.html"></iframe></div>
+<div id=showSoftware style= display:none;><iframe src="software.html"></iframe></div>
+<div id=showProg style= display:block;><iframe src="prog.html"></iframe></div>
+</center>
+
+<center>
+<div class="board" id="printcontrols">
+<h2>Browser Print</h2>
+<div id="printer_data_loading" style="display:none"><span id="loading_message"><p>Loading Printer Details...</p></span><br/></div>
+<div id="main">
+<div id="printer_select" style="display:block">Printers:<select id="printers"></select></div>
+</div>
+<div id="printer_details" style="display:none"><span id="selected_printer">No data</span>
+<button type="button" class="action-button-small" onclick="setup_web_print()">Refresh</button>
+<button id="status-button" class="action-button-small"onClick='sendD2();'>STATUS</button></br>
+<div id="error_div"><div id="error_message"></div></div>
+</div>
+
+
+
+	
+<form  method="post"></br>	
+<h3>HTTP POST</h3>
+<p>Printing to:</p> <input type="text" id="ip_addr" value="10.35.201.175" style="text-align:center"></br>
+<p>ZPL Code:</p>
+<input type="text" value="^XA^FO50,50^A0N, 50,50^FDZebra - Test^FS^XZ" id="textbox">
+</form>
+<center>
+<button class="action-button"onClick='printLabel();'>Send label</button>
+<button class="action-button"onClick='printConfigLabel();'>Print Configuration Label</button>
+<button class="action-button"onClick='ResetPrinter();'>Reset Printer</button>
+<button class="action-button"onClick='FeedLabel();'>Feed Label</button></br>
+<button class="action-button"onClick='FourBySix();'>4x6 Test</button></br>
+<a class="action-button" href="pictures/128.gif" target="_blank">C128/ZPL Sample</button></a></br>
+<a class="action-button" href="pictures/label1.gif" target="_blank">QR/ZPL Sample</button></a></br>
+
+<input type="text" id="Label-Length" value='! U1 setvar "zpl.label_length" "406"' style="text-align:center">
+<input type="text" id="Print-Width" value='! U1 setvar "ezpl.print_width" "3"' style="text-align:center">
+</center>
+</div>	
+</body>
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="scripts/BrowserPrint-1.0.4.min.js">$(document).ready(setup_web_print);</script>
+		<script type="text/javascript" src="scripts/DevDemo.js"></script>
+		<script type="text/javascript" src="scripts/showProg.js"></script>
+		<script type="text/javascript" src="scripts/showSoftware.js"></script>
+		<script type="text/javascript" src="scripts/showDocuments.js"></script>
+		<script type="text/javascript" src="scripts/showLinks.js"></script>
+		<script type="text/javascript" src="scripts/showDesktop.js"></script>
+		<script type="text/javascript" src="scripts/showCard.js"></script>
+		<script type="text/javascript" src="scripts/showMobile.js"></script>
+		<script type="text/javascript" src="scripts/showKiosk.js"></script>
+		<script type="text/javascript" src="scripts/showTabletop.js"></script>
+		<script type="text/javascript" src="scripts/clockncopy.js"></script>
+		<script type="text/javascript" src="scripts/4x6.js"></script>
+		<script type="text/javascript" src="scripts/configlabel.js"></script>
+		<script type="text/javascript" src="scripts/textbox.js"></script>
+		<script type="text/javascript" src="scripts/feed.js"></script>
+		<script type="text/javascript" src="scripts/reset.js"></script>
+		<script type="text/javascript" src="scripts/labelsize.js"></script>
+		<script type="text/javascript" src="scripts/status.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+</script>
+</html>
