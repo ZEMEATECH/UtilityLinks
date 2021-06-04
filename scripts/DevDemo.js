@@ -2,7 +2,7 @@ var available_printers = null;
 var selected_category = null;
 var default_printer = null;
 var selected_printer = null;
-var format_start = "^XA^FO100,100^A0N36,36^FD";
+var format_start = "^XA^FO100,100^A0N36,36^FDZebra-TEST^FS^XZ";
 var format_end = "^FS^XZ";
 var default_mode = true;
 function setup_web_print()
@@ -86,19 +86,22 @@ function showBrowserPrintNotFound()
 
 };
 
-function sendData()
+function QuickTest()
 {
 	showLoading("Printing...");
 	checkPrinterStatus( function (text){
 		if (text == "Ready to Print")
 		{
-			selected_printer.send(format_start + $('#entered_name').val() + format_end, printComplete, printerError);
+			selected_printer.send(format_start, printComplete, printerError);
+			setup_web_print()
 		}
 		else
 		{
 			printerError(text);
 		}
+		
 	});
+	
 };
 
 function checkPrinterStatus(finishedFunction)
