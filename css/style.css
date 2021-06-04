@@ -1,7 +1,7 @@
 body
  {
  font-family:arial;  
- background-image: linear-gradient(white 50%, #f0f0f0);
+ background-color: #f0f0f0;
   }
  #banner
  { 
@@ -133,13 +133,12 @@ a
  }
 .board
  {
-  
   border-style:none;
   border-radius: 10px;
   float:rigth;
-  position: fixed;
+  position: absolute;
   border-radius: 5px;
-  margin-top:-150;
+  margin-top:-750px;
   margin-left:10;
   width:30%;
   height:60%;
@@ -157,7 +156,7 @@ a
  z-index:-1;
   border-bottom:solid gold 2pt;
  }
- .home-board
+ /*/.home-board/*/
  {
   cursor: pointer;
   border-radius: 10px;
@@ -247,13 +246,7 @@ iframe{
 	margin-bottom: 1.4%;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-	z-index:-10;
 	} 
-#printcontrols{
-margin-top:-740px;	
-position: fixed;
-	
-}
 #main{
 position:relative;
 }
@@ -275,9 +268,7 @@ position:relative;
 #selected_printer{
 	font-size:8pt;
 	font-weight:bold;
-	position: fixed;
 	margin: 10px;
-	margin-left:180px;
 }
 #BrowserPrint{
 	
@@ -286,13 +277,14 @@ position:relative;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 #refresh-button{
-	margin-left: 450px;
-}	
-#QuickTest{
-	margin:10px;
-	padding:10px;
-	margin-left: -450px;
-}	
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 #loading_message
 {
 	font-size:10pt;
@@ -300,6 +292,15 @@ position:relative;
 	margin:-10px;
 }
 
+#results
+{ 
+    background-color:white;
+	padding:10px;
+	position:static;
+	height:auto;
+	width:175px;
+	border-radius: 8px;
+}
 	
 	
 	

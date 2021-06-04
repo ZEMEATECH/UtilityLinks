@@ -451,4 +451,43 @@ function trySetupAgain()
 
 }
 
+/*/ V3 */
+
+function getConfig(){
+	BrowserPrint.getApplicationConfiguration(function(config){
+		alert(JSON.stringify(config))
+	}, function(error){
+		alert(JSON.stringify(new BrowserPrint.ApplicationConfiguration()));
+	})
+}
+
+function writeToSelectedPrinter(dataToWrite)
+{
+	selected_printer.send(dataToWrite, undefined, errorCallback);
+	if (document.getElementById('write_text').value === undefined)
+	{
+		alert ("Type some code")
+	}	
+}
+var readCallback = function(readData)
+{	
+	if(readData === undefined || readData === null)
+	{
+		alert("No Response from Device");
+	}
+	else
+	{
+		document.getElementById("results").innerHTML = readData;
+	}
+	
+}
+var errorCallback = function(errorMessage){
+	alert("Error: " + errorMessage);	
+}
+function readFromSelectedPrinter()
+{
+
+	selected_printer.read(readCallback, errorCallback);
+	
+}
 

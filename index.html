@@ -67,7 +67,6 @@
 <div id=showSoftware style= display:none;><iframe src="software.html"></iframe></div>
 
 </center>
-
 <center>
 <div class="board" id="printcontrols">
 <div id="BrowserPrint">
@@ -76,7 +75,7 @@
 <div id="main">
 <div id="error_div"><p id="error_message"></p></div>
 <div id="printer_select" style="display:block">
-<p>Available Printers: <select id="printers"></select> <button id="status-button" class="action-button-small"onClick='readPrinterStatus();'>STATUS</button></p>
+<p>Available Printers: <select id="printers"></select> <button id="status-button" class="action-button-small" onClick='readPrinterStatus();'>STATUS</button></p>
 <div id="printer_details" style="display:none">
 <p id="selected_printer">No data</p>
 </div>
@@ -101,7 +100,16 @@
 <button type="button" class="action-button-small" onclick="SetToThermalTransfer()">Thermal Transfer</button>
 <button type="button" class="action-button-small" onclick="SetToDirectThermal()">Direct Thermal</button>
 </br></br>
+<h5>Commands Console</h5>
+<center>
+<input type="text" name="write_text" id="write_text">
+<input type="button" class="action-button-small" value="Write" onclick="writeToSelectedPrinter(document.getElementById('write_text').value), readFromSelectedPrinter()">
+<br/><br/>
 </div>
+
+<p id="results"></p>
+</center>
+
 </div>
 <!-- PENDING INTEGRATION TO GITHUB
 <form  method="post"></br>	
@@ -122,8 +130,11 @@ Printing to: <input type="text" id="ip_addr" autocomplete="on" value="0.0.0.0" s
 <input type="text" id="Label-Length" value='! U1 setvar "zpl.label_length" "406"' style="text-align:center">
 <input type="text" id="Print-Width" value='! U1 setvar "ezpl.print_width" "3"' style="text-align:center">
 -->
+	
 </center>
-</div>	
+
+</div>
+
 </body>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="scripts/BrowserPrint-3.0.216.min.js">$(document).ready(setup_web_print);</script>
