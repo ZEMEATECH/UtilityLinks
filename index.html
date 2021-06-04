@@ -9,7 +9,7 @@
 <script type="text/javascript"> $(document).ready(setup_web_print);
 </script>
 </head>
-<body>
+<body onLoad="readPrinterStatus();">
 <div id=banner>
 	<center>
 			<a href="http://www.zebra.com" target="_blank"><img src="pictures/imgz2.png" id=img_zebra1 alt="Zebra Black Logo"></a></p></p>
@@ -71,24 +71,39 @@
 <center>
 <div class="board" id="printcontrols">
 <div id="BrowserPrint">
-<h3>Browser Print</h3>
+<a id="refresh-button" class=v onclick="setup_web_print()"><h2>Browser Print</h2></a>
 <div id="printer_data_loading" style="display:none"><span id="loading_message"><p>Loading Printer Details...</p></span><br/></div>
 <div id="main">
 <div id="error_div"><p id="error_message"></p></div>
 <div id="printer_select" style="display:block">
 <p>Available Printers: <select id="printers"></select> <button id="status-button" class="action-button-small"onClick='readPrinterStatus();'>STATUS</button></p>
-
-<button type="button" class="action-button-small" id="refresh-button" onclick="setup_web_print()">Refresh</button>
 <div id="printer_details" style="display:none">
-<p id="selected_printer">No data
+<p id="selected_printer">No data</p>
 </div>
 </div>
 </div>
 </br>
-<button id="QuickTest" type="button" class="action-button-small" id="refresh-button" onclick="QuickTest()">Quick Test</button>
+<div id="BrowserPrintControls">
+<h3>Printer Controls </h3>
+<button type="button" class="action-button-small" onclick="Feed()">Feed</button>
+<button type="button" class="action-button-small" onclick="Pause()">Pause</button>
+<button type="button" class="action-button-small" onclick="Cancel()">Cancel</button>
+</br></br>
+<button type="button" class="action-button-small" onclick="QuickTest()">Quick Test</button>
+<button type="button" class="action-button-small" onclick="Calibrate()">Calibrate</button>
+<button type="button" class="action-button-small" onclick="Reset()">Reset Printer</button>
+<h4> Media Settings </h4>
+<h5>Media Type</h5>
+<button type="button" class="action-button-small" onclick="SetToBlackMark()">Black Mark</button>
+<button type="button" class="action-button-small" onclick="SetToGap()">Gap/Notch</button>
+<button type="button" class="action-button-small" onclick="SetToJournal()">Journal</button>
+<h5>Print Method</h5>
+<button type="button" class="action-button-small" onclick="SetToThermalTransfer()">Thermal Transfer</button>
+<button type="button" class="action-button-small" onclick="SetToDirectThermal()">Direct Thermal</button>
+</br></br>
 </div>
-
-
+</div>
+<!-- PENDING INTEGRATION TO GITHUB
 <form  method="post"></br>	
 <h3>HTTP POST</h3>
 Printing to: <input type="text" id="ip_addr" autocomplete="on" value="0.0.0.0" style="text-align:center"></br>
@@ -106,6 +121,7 @@ Printing to: <input type="text" id="ip_addr" autocomplete="on" value="0.0.0.0" s
 
 <input type="text" id="Label-Length" value='! U1 setvar "zpl.label_length" "406"' style="text-align:center">
 <input type="text" id="Print-Width" value='! U1 setvar "ezpl.print_width" "3"' style="text-align:center">
+-->
 </center>
 </div>	
 </body>

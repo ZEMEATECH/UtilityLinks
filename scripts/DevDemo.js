@@ -2,13 +2,13 @@ var available_printers = null;
 var selected_category = null;
 var default_printer = null;
 var selected_printer = null;
-var format_start = "^XA^FO100,100^A0N36,36^FDZebra-TEST^FS^XZ";
+var format_start = "^XA^FO100,100^A0N36,36^FDZebra - Test Browser Print^FS^XZ";
 var format_end = "^FS^XZ";
 var default_mode = true;
 function setup_web_print()
 {
 	$('#printer_select').on('change', onPrinterSelected);
-	showLoading("Loading Printer Information...");
+	showLoading("Please wait...");
 	default_mode = true;
 	selected_printer = null;
 	available_printers = null;
@@ -77,19 +77,17 @@ $('#printer_select').show();
 };
 function showBrowserPrintNotFound()
 {   
-    
     $('#printer_select').hide();
 	hideLoading();
 	document.getElementById("error_div").style.color = "red";
 	document.getElementById("error_div").style.margin = "0px 210px";
 	showErrorMessage("Restart Browser Print");
-
 };
-
+/*/PRINTER CONTROLS /*/
 function QuickTest()
 {
 	showLoading("Printing...");
-	checkPrinterStatus( function (text){
+	checkPrinterStatus(function (text){
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(format_start, printComplete, printerError);
@@ -99,10 +97,199 @@ function QuickTest()
 		{
 			printerError(text);
 		}
-		
 	});
 	
 };
+
+function Calibrate()
+{
+	showLoading("Printing...");
+	var zpl = "~JC"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}
+	});
+	
+};
+
+function SetToBlackMark()
+{
+	showLoading("Setting to Black Mark...");
+	var zpl = "^XA^MNM^JUS^XZ~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}
+	});
+	
+};
+
+function Reset()
+{
+	showLoading("Setting to Black Mark...");
+	var zpl = '! U1 do "device.reset" "" '
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}
+	});
+	
+};
+
+function SetToGap()
+{
+	showLoading("Printing...");
+	var zpl = "^XA^MNY^JUS^XZ~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}
+	});
+	
+};
+function SetToJournal()
+{
+	showLoading("Printing...");
+	var zpl = "^XA^MNN^JUS^XZ~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}		
+	});
+};
+
+function Feed()
+{
+	showLoading("Printing...");
+	var zpl = "~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}		
+	});
+};
+function Cancel()
+{
+	showLoading("Printing...");
+	var zpl = "~JA"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}		
+	});
+};
+
+
+function Pause()
+{
+	showLoading("Printing...");
+	var zpl = "~PP"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			readPrinterStatus();
+			setup_web_print()
+		}		
+		else
+		{
+			if (text == "PRINTER PAUSED")
+			{
+			
+			selected_printer.send(zpl = "~PS");
+			readPrinterStatus()
+			setup_web_print()
+			}
+			
+			else 
+			{		
+			 printerError(text);
+			}
+		}		
+	});
+};
+
+
+
+function SetToThermalTransfer()
+{
+	showLoading("Printing...");
+	var zpl = "^XA^MTT^JUS^XZ"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}		
+	});
+};
+
+function SetToDirectThermal()
+{
+	showLoading("Printing...");
+	var zpl = "^XA^MTD^JUS^XZ"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			setup_web_print()
+		}
+		else
+		{
+			printerError(text);
+		}		
+	});
+};
+
+
+/*/Common Functions /*/
 
 function checkPrinterStatus(finishedFunction)
 {
@@ -191,7 +378,7 @@ function showLoading(text)
 function printComplete()
 {
 	hideLoading();
-	alert ("Printing complete");
+	alert ("Request complete");
 }
 
 function hideLoading()
