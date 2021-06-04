@@ -201,6 +201,7 @@ function Feed()
 		}
 		else
 		{
+			showLoading("ERROR!");
 			printerError(text);
 		}		
 	});
@@ -238,7 +239,7 @@ function Pause()
 		{
 			if (text == "PRINTER PAUSED")
 			{
-			
+			showLoading("Cannot Complete!");
 			selected_printer.send(zpl = "~PS");
 			readPrinterStatus()
 			setup_web_print()
