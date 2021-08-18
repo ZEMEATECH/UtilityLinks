@@ -30,64 +30,37 @@
 		</center>
 		</h2>
 	</div>
-<div class=rboard>
-	<ul id="copyme">		
-		<p>Hello!
-		<p>This is a kind reminder for our pending case.
-		<p>Best Regards,
-		<p>Hector Javier Aguilar Reyes
-		<p>Technical Support
-		<p>Zebra Technologies
-	</ul>
-	<button class="action-button-small" onclick="copyClipboard()">Copy</button>
-	</div>
 <center>
-	<div class=top-board>
-  <table>	
-	<th><a class=home-board onClick='showSoftware();'>Software</a></th>
-	<th><a class=home-board onClick='showTabletop();'>Tabletop</a></th>
-	<th><a class=home-board onClick='showMobile();'>Mobile</a></th>
-	<th><a class=home-board onClick='showCard();'>Card</a></th>
-	<th><a class=home-board onClick='showDesktop();'>Desktop</a></th>
-	<th><a class=home-board onClick='showKiosk();'>Kiosk</a></th>
-	<th><a class=home-board onClick='showLinks();'>Links</a></th>
-	<th><a class=home-board onClick='showDocuments();'>Documents/Articles</a></th>
-	<th><a class=home-board onClick='showProg();'>Programming</a></th>
-	</tr>
-	</table>
-</div>
-<div id=showProg style= display:block;><iframe src="prog.html"></iframe></div>
-<div id=showKiosk style= display:none;><iframe src="kiosk.html"></iframe></div>
-<div id=showTabletop style= display:none;><iframe src="tabletop.html"></iframe></div>
-<div id=showMobile style= display:none;><iframe src="mobile.html"></iframe></div>
-<div id=showCard style= display:none;><iframe src="card.html"></iframe></div>
-<div id=showDesktop style= display:none;><iframe src="desktop.html"></iframe></div>
-<div id=showLinks style= display:none;><iframe src="links.html"></iframe></div>
-<div id=showDocuments style= display:none;><iframe src="documents.html"></iframe></div>
-<div id=showSoftware style= display:none;><iframe src="software.html"></iframe></div>
-</center>
+<div  id="printcontrols">
+
+<form  method="post"></br>	
+<h3>HTTP POST</h3>
+Printing to: <input type="text" id="ip_addr" autocomplete="on" value="0.0.0.0" style="text-align:center"></br>
+<p>ZPL Code:</p>
+<input type="text" value="^XA^FO50,50^A0N, 50,50^FDZebra - Test^FS^XZ" id="textbox">
+</form>
 <center>
-<div class="left-board">
-</br>
-</br>
-<a class="v2" href="broprint.html" target="_blank"><li> Browser Print</li></a></br>
-<a class="v2" href="httppost.html" target="_blank"><li> HTTP POST</li></a></br>
-<a class="v2" href="manuals/scanandprint.pdf" target="_blank"><li> Scan & Print</li></a></br>
-</div>
+<button class="action-button"onClick='printLabel();'>Send label</button>
+<button class="action-button"onClick='printConfigLabel();'>Print Configuration Label</button>
+<button class="action-button"onClick='ResetPrinter();'>Reset Printer</button>
+<button class="action-button"onClick='FeedLabel();'>Feed Label</button>
+<button class="action-button"onClick='FourBySix();'>4x6 Test</button>
+<a class="action-button" href="pictures/128.gif" target="_blank">C128/ZPL Sample</button></a>
+<a class="action-button" href="pictures/label1.gif" target="_blank">QR/ZPL Sample</button></a></br>
+
+<input type="text" id="Label-Length" value='! U1 setvar "zpl.label_length" "406"' style="text-align:center">
+<input type="text" id="Print-Width" value='! U1 setvar "ezpl.print_width" "3"' style="text-align:center">
+
+	
 </center>
+
+</div>
+
 </body>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="scripts/BrowserPrint-3.0.216.min.js">$(document).ready(setup_web_print);</script>
 		<script type="text/javascript" src="scripts/DevDemo.js"></script>
-		<script type="text/javascript" src="scripts/showProg.js"></script>
-		<script type="text/javascript" src="scripts/showSoftware.js"></script>
-		<script type="text/javascript" src="scripts/showDocuments.js"></script>
-		<script type="text/javascript" src="scripts/showLinks.js"></script>
-		<script type="text/javascript" src="scripts/showDesktop.js"></script>
-		<script type="text/javascript" src="scripts/showCard.js"></script>
-		<script type="text/javascript" src="scripts/showMobile.js"></script>
-		<script type="text/javascript" src="scripts/showKiosk.js"></script>
-		<script type="text/javascript" src="scripts/showTabletop.js"></script>
+		
 		<script type="text/javascript" src="scripts/clockncopy.js"></script>
 		<script type="text/javascript" src="scripts/4x6.js"></script>
 		<script type="text/javascript" src="scripts/configlabel.js"></script>
