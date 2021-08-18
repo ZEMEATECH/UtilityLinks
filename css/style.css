@@ -189,6 +189,7 @@ a
  { 
  z-index:-1;
   border-bottom:solid gold 2pt;
+  cursor: pointer;
  }
  /*/.home-board/*/
  {
