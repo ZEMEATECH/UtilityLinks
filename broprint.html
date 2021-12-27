@@ -23,7 +23,7 @@
 <div id="main">
 <div id="error_div"><p id="error_message"></p></div>
 <div id="printer_select" style="display:block">
-<p>Available Printers: <select id="printers"></select> <button id="status-button" class="action-button-small" onClick='readPrinterStatus();'>STATUS</button></p>
+<p>Available Printers: <select id="printers"></select> <button id="status-button" class="button-browserprint" onClick='readPrinterStatus();'>STATUS</button></p>
 <div id="printer_details" style="display:none">
 <p id="selected_printer">No data</p>
 </div>
@@ -52,7 +52,7 @@
 <div id="BrowserPrintCommandsConsole">
 <h4>Commands Console</h4>
 <center>
-<input type="text" name="write_text" id="write_text">
+<input class="textbox-browserprint" type="text" name="write_text" id="write_text">
 <input class="button-browserprint" value="Write" onclick="writeToSelectedPrinter(document.getElementById('write_text').value), readFromSelectedPrinter()">
 </div>
 <br/><br/>
