@@ -80,7 +80,7 @@ padding: 0px 60px 20px -5px;
 }
 .button-browserprint
 {
-color:white;
+ color:white;
  font-size:16pt;	
  padding: 15px ;
  background-color:#00a4e3;
@@ -160,7 +160,13 @@ footer
 {
 	float:left;
 	margin-left:10pt;
-	 background-color:rgba( 255, 255, 255, 0.1);
-	 border-radius: 20px;
-	 padding:10pt;
+	background-color:rgba( 255, 255, 255, 0.1);
+	border-radius: 20px;
+    padding:10pt;
+}
+#textbox-browserprint
+{
+ font-size:16pt;	
+ padding: 15px ; 
+ border-radius: 15px;
 }
