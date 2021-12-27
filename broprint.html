@@ -9,32 +9,16 @@
 <script type="text/javascript"> $(document).ready(setup_web_print);
 </script>
 </head>
+
 <body onLoad="readPrinterStatus();">
 <div id=banner>
-	<center>
-			<a href="http://www.zebra.com" target="_blank"><img src="pictures/imgz2.png" id=img_zebra1 alt="Zebra Black Logo"></a></p></p>
-			<h1>UTILITY LINKS</h1>
-	</center>
-		<h2 id="top-menu">		
-		    <p id="clock"></p>
-		<center>
-			<a class= "button-top" href="https://secure3.entertimeonline.com/ta/6029195.hcm?rnd=TND&showAdmin=1&Ext=login&sft=TIOZTLYMGA" target="_blank">| Kronos </a>
-			<a class= "button-top" href="https://zebra.lightning.force.com/lightning/o/Case/list?filterName=00Bi0000006Uxk2EAC" target="_blank">| Sales Force </a>
-			<a class= "button-top" href="https://home-c16.incontact.com/inContact/Default.aspx" target="_blank">| InContact </a>
-			<a class= "button-top" href="https://supportcommunity.zebra.com" target="_blank">| Support Community </a>
-			<a class= "button-top" href="https://zebra-my.sharepoint.com/personal/hr2598_zebra_com/_layouts/15/onedrive.aspx" target="_blank">| One Drive </a>
-			<a class= "button-top" href="https://www.zebra.com/us/en/forms/license-reset-request.html" target="_blank">| License Reset Form</a>
-			<a class= "button-top" href="useful/nontech.txt" target="_blank">| EMEA Non Tech Queues</a>
-			<a class= "button-top" href="https://www.zebra.com/us/en/support-downloads/request-repair.html" target="_blank">| Request RMA</a>
-			<a class= "button-top" href="https://zebra-my.sharepoint.com/:x:/r/personal/vnt867_zebra_com/Documents/AAA%20Updated/EMEA%20AIT%20Tech%20Team/EMEA_TECH_AIT_SHIFT_PLAN.xlsx?d=w527199cdcfd64883b17ad5a1815f9b04&csf=1&e=OSZWJG" target="_blank">| Shift Plan</a>
-		</center>
-		</h2>
-	</div>
+<img src="res/zebralogo.png" id=img_zebra1 alt="Zebra Black Logo"></img><a id="title" class= "button-top" href="https://www.zebra.com/us/en/" target="_blank"><p>Utility Links</p></a>	
+</div>
+
 <center>
-<a class="action-button" href="index.html">Home Page</button></a></br>
 <div  id="printcontrols">
 <div id="BrowserPrint">
-<a id="refresh-button" class=v onclick="setup_web_print()"><h2>Browser Print</h2></a>
+<a id="refresh-button" class=v onclick="setup_web_print()"><h1>Browser Print</h1</a>
 <div id="printer_data_loading" style="display:none"><span id="loading_message"><p>Loading Printer Details...</p></span><br/></div>
 <div id="main">
 <div id="error_div"><p id="error_message"></p></div>
@@ -46,33 +30,37 @@
 </div>
 </div>
 </br>
-<div id="BrowserPrintControls">
-<h3>Printer Controls </h3>
-<button type="button" class="action-button-small" onclick="Feed()">Feed</button>
-<button type="button" class="action-button-small" onclick="Pause()">Pause</button>
-<button type="button" class="action-button-small" onclick="Cancel()">Cancel</button>
+<div id="BrowserPrintControls"><h4>Printer Controls </h4>
+<button class="button-browserprint" onclick="Feed()">Feed</button>
+<button class="button-browserprint" onclick="Pause()">Pause</button>
+<button class="button-browserprint" onclick="Cancel()">Cancel</button>
 </br></br>
-<button type="button" class="action-button-small" onclick="QuickTest()">Quick Test</button>
-<button type="button" class="action-button-small" onclick="Calibrate()">Calibrate</button>
-<button type="button" class="action-button-small" onclick="Reset()">Reset Printer</button>
+<button class="button-browserprint" onclick="QuickTest()">Quick Test</button>
+<button class="button-browserprint" onclick="Calibrate()">Calibrate</button>
+<button class="button-browserprint" onclick="Reset()">Reset Printer</button>
+</div>
+<div id="BrowserPrintMediaSettings">
 <h4> Media Settings </h4>
-<h5>Media Type</h5>
-<button type="button" class="action-button-small" onclick="SetToBlackMark()">Black Mark</button>
-<button type="button" class="action-button-small" onclick="SetToGap()">Gap/Notch</button>
-<button type="button" class="action-button-small" onclick="SetToJournal()">Journal</button>
-<h5>Print Method</h5>
-<button type="button" class="action-button-small" onclick="SetToThermalTransfer()">Thermal Transfer</button>
-<button type="button" class="action-button-small" onclick="SetToDirectThermal()">Direct Thermal</button>
+<button class="button-browserprint" onclick="SetToBlackMark()">Black Mark</button>
+<button class="button-browserprint" onclick="SetToGap()">Gap/Notch</button>
+<button class="button-browserprint" onclick="SetToJournal()">Journal</button>
 </br></br>
-<h5>Commands Console</h5>
+<button class="button-browserprint" onclick="SetToThermalTransfer()">Thermal Transfer</button>
+<button class="button-browserprint" onclick="SetToDirectThermal()">Direct Thermal</button>
+</div>
+</br></br>
+<div id="BrowserPrintCommandsConsole">
+<h4>Commands Console</h4>
 <center>
 <input type="text" name="write_text" id="write_text">
-<input type="button" class="action-button-small" value="Write" onclick="writeToSelectedPrinter(document.getElementById('write_text').value), readFromSelectedPrinter()">
-<br/><br/>
+<input class="button-browserprint" value="Write" onclick="writeToSelectedPrinter(document.getElementById('write_text').value), readFromSelectedPrinter()">
 </div>
+<br/><br/>
+
 
 <p id="results"></p>
 </center>
+
 
 </div>
 <!-- PENDING INTEGRATION TO GITHUB

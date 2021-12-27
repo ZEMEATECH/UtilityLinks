@@ -1,0 +1,25 @@
+
+^XA
+^WIA
+^NC2
+^NPP
+^KC0,0,,
+^WAD,D
+^WEOFF,1,,,,,,
+^WP0,0
+^WR,,,,100
+^WSZTech,I,L,,,
+^NBS
+^WLOFF,,
+^WKOFF,,,,
+^WX09,9C23906013DF4AD26AF0CC7DB9397EA0C9CF406440E179AFAD0F5F6D6D787310
+^XZ
+^XA
+^JUS
+^XZ
+! U1 setvar "wlan.country_code" "europe"
+! U1 setvar "wlan.international_mode" "off"
+! U1 setvar "wlan.allowed_band" "all"
+! U1 setvar "display.backlight_on_time" "0"
+! U1 setvar "power.energy_star.enable" "off"
+! U1 do "device.reset" ""
