@@ -1,19 +1,19 @@
 <html>
 <title>Zebra Utility Links</title>
 <head><link rel="stylesheet" href="css/style.css"></head>
-
 <body onload="gettime()">
+<div class= "top-banner">
 <a class= "button-top" href="https://secure3.entertimeonline.com/ta/6029195.hcm?rnd=TND&showAdmin=1&Ext=login&sft=TIOZTLYMGA" target="_blank">Kronos </a>
 <a class= "button-top" href="https://zebra.lightning.force.com/" target="_blank">Sales Force </a>
 <a class= "button-top" href="https://home-c16.incontact.com/inContact/Default.aspx" target="_blank"> InContact </a>
 <a class= "button-top" href="https://supportcommunity.zebra.com" target="_blank"> Support Community </a>
 <a class= "button-top" href="https://apps.powerapps.com/play/05feea8b-025a-46cf-bd3c-9e5f826a5675?tenantId=4d3d260a-9c40-4306-8dac-0d64717039ec&source=email&hint=3cad1fe2-9a68-47e4-8a28-6890c283c951&skipAppMetadata=true" target="_blank"> Shipment App</a>
 <a class= "button-top" href="https://www.zebra.com/us/en/forms/license-reset-request.html" target="_blank"> License Reset Form</a>
-<a class= "button-top" href="useful/nontech.txt" target="_blank"> EMEA Non Tech Queues</a>
+<a class= "button-top" href="useful/nontech.txt" target="_blank"> EMEA InContact Queues</a>
 <a class= "button-top" href="https://www.zebra.com/us/en/support-downloads/request-repair.html" target="_blank"> Request RMA</a>
 <a class= "button-top" href="https://zebra-my.sharepoint.com/:x:/r/personal/vnt867_zebra_com/Documents/AAA%20Updated/EMEA%20AIT%20Tech%20Team/EMEA_TECH_AIT_SHIFT_PLAN.xlsx?d=w527199cdcfd64883b17ad5a1815f9b04&csf=1&e=OSZWJG" target="_blank"> Shift Plan</a>
-<img src="res/zebralogo.png" id=img_zebra1 alt="Zebra Black Logo"></img><a id="title" class= "button-top" href="https://www.zebra.com/us/en/" target="_blank"><p>Utility Links</p></a>	
-
+<img src="res/zebralogo.png" id=img_zebra1 alt="Zebra Black Logo" href="https://www.zebra.com/us/en/" target="_blank"></img><a id="title" class= "button-top" ></a>	
+</div>
 <center>
 <div id=top-board>
     <table>	
@@ -50,13 +50,19 @@
 	<a class="v2" href="manuals/scanandprint.pdf" target="_blank"><li> Scan & Print</li></a></br>
 </center>
 </div>
+<div class="worldclock">
+<h1 id="shortdate" style="color:gold"></h1>
+<h2>Brno: <span class="clocks" data-timezone="Europe/Berlin"></span></h2>
+<h2>Chicago: <span class="clocks" data-timezone="America/Chicago"></span></h2>
+<h2>New York: <span class="clocks" data-timezone="America/New_York"></span></h2>
+<h2>Penang: <span class="clocks" data-timezone="Asia/Shanghai"></span></h2>
 
+</div>
 <footer>
-	<h1 id="hour"></h1>
-	<h1 id="shortdate"></h1>
 </footer>
 
 </body>
+<script type="text/javascript" src="js/clocks.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/BrowserPrint-3.0.216.min.js">$(document).ready(setup_web_print);</script>
