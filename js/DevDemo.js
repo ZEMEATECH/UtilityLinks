@@ -5,6 +5,7 @@ var selected_printer = null;
 var format_start = "^XA^FO100,100^A0N36,36^FDZebra - Test Browser Print^FS^XZ";
 var format_end = "^FS^XZ";
 var default_mode = true;
+
 function setup_web_print()
 {
 	$('#printer_select').on('change', onPrinterSelected);
@@ -84,17 +85,94 @@ function showBrowserPrintNotFound()
 	showErrorMessage("Restart Browser Print");
 };
 /*/PRINTER CONTROLS /*/
+
+function Feed()
+{
+	showLoading("Printing...");
+	var zpl = "~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			readPrinterStatus();
+			hideLoading();
+			$('#printer_details').show();
+	        $('#printer_select').show();
+		}
+		else
+		{
+			showLoading("ERROR!");
+			printerError(text);
+			setup_web_print()
+		}		
+	});
+};
+
+function Pause()
+{
+	showLoading("Printing...");
+	var zpl = "~PP"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			readPrinterStatus();
+			hideLoading();
+			$('#printer_details').show();
+	        $('#printer_select').show();
+		}		
+		else
+		{
+			if (text == " PRINTER PAUSED")
+			{
+			showLoading("Cannot Complete!");
+			selected_printer.send(zpl = "~PS");
+			readPrinterStatus();
+			hideLoading();
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			}
+			
+			else 
+			{	
+			 showLoading("ERROR");
+			 printerError(text);
+			}
+		}		
+	});
+};
+
+
+function Cancel()
+{
+	showLoading("Printing...");
+	var zpl = "~JA"
+	checkPrinterStatus( function (text){
+			selected_printer.send(zpl);
+			readPrinterStatus();			
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("ALL JOBS CANCELLED!");
+			hideLoading();
+			
+	});
+};
+
+
 function QuickTest()
 {
 	showLoading("Printing...");
 	checkPrinterStatus(function (text){
 		if (text == "Ready to Print")
 		{
-			selected_printer.send(format_start, printComplete, printerError);
-			setup_web_print()
+			selected_printer.send(format_start, printerError);
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("QUICK TEST SENT!");
 		}
 		else
 		{
+			alert("ERROR, REVIEW YOUR SETTINGS!");
 			printerError(text);
 		}
 	});
@@ -109,29 +187,14 @@ function Calibrate()
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(zpl);
-			setup_web_print()
+				$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("CALIBRATING PLEASE WAIT...");
 		}
 		else
 		{
-			printerError(text);
-		}
-	});
-	
-};
-
-function SetToBlackMark()
-{
-	showLoading("Setting to Black Mark...");
-	var zpl = "^XA^MNM^JUS^XZ~PH"
-	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
-			selected_printer.send(zpl);
-			setup_web_print()
-		}
-		else
-		{
-			printerError(text);
+			alert("ERROR, REVIEW YOUR SETTINGS");
+			printerError(text);		
 		}
 	});
 	
@@ -145,10 +208,35 @@ function Reset()
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(zpl);
-			setup_web_print()
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("PRINTER IS RESETTING!");
 		}
 		else
 		{
+			alert("ERROR, REVIEW YOUR SETTINGS");
+			printerError(text);
+		}
+	});
+	
+};
+
+
+function SetToBlackMark()
+{
+	showLoading("Setting to Black Mark...");
+	var zpl = "^XA^MNM^JUS^XZ~PH"
+	checkPrinterStatus( function (text){
+		if (text == "Ready to Print")
+		{
+			selected_printer.send(zpl);
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("BLACK MARK MODE...");
+		}
+		else
+		{
+			alert("ERROR, REVIEW YOUR SETTINGS");
 			printerError(text);
 		}
 	});
@@ -163,10 +251,13 @@ function SetToGap()
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(zpl);
-			setup_web_print()
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("GAP/NOTCH MODE...");
 		}
 		else
 		{
+			alert("ERROR, REVIEW YOUR SETTINGS");
 			printerError(text);
 		}
 	});
@@ -180,95 +271,31 @@ function SetToJournal()
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(zpl);
-			setup_web_print()
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("JOURNAL/CONTINUOUS MODE");
 		}
 		else
 		{
+			alert("ERROR, REVIEW YOUR SETTINGS");
 			printerError(text);
-		}		
-	});
-};
-
-function Feed()
-{
-	showLoading("Printing...");
-	var zpl = "~PH"
-	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
-			selected_printer.send(zpl);
-			setup_web_print()
 		}
-		else
-		{
-			showLoading("ERROR!");
-			printerError(text);
-		}		
 	});
 };
-function Cancel()
-{
-	showLoading("Printing...");
-	var zpl = "~JA"
-	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
-			selected_printer.send(zpl);
-			setup_web_print()
-		}
-		else
-		{
-			printerError(text);
-		}		
-	});
-};
-
-
-function Pause()
-{
-	showLoading("Printing...");
-	var zpl = "~PP"
-	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
-			selected_printer.send(zpl);
-			readPrinterStatus();
-			setup_web_print()
-		}		
-		else
-		{
-			if (text == "PRINTER PAUSED")
-			{
-			showLoading("Cannot Complete!");
-			selected_printer.send(zpl = "~PS");
-			readPrinterStatus()
-			setup_web_print()
-			}
-			
-			else 
-			{		
-			 printerError(text);
-			}
-		}		
-	});
-};
-
 
 
 function SetToThermalTransfer()
 {
 	showLoading("Printing...");
 	var zpl = "^XA^MTT^JUS^XZ"
-	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
+	checkPrinterStatus( function (text){		
 			selected_printer.send(zpl);
-			setup_web_print()
-		}
-		else
-		{
-			printerError(text);
-		}		
+			readPrinterStatus();			
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("THERMAL TRANSFER MODE");
+			hideLoading();
+				
 	});
 };
 
@@ -280,7 +307,11 @@ function SetToDirectThermal()
 		if (text == "Ready to Print")
 		{
 			selected_printer.send(zpl);
-			setup_web_print()
+			readPrinterStatus();			
+			$('#printer_details').show();
+	        $('#printer_select').show();
+			alert("DIRECT THERMAL MODE");
+			hideLoading();
 		}
 		else
 		{
@@ -288,7 +319,7 @@ function SetToDirectThermal()
 		}		
 	});
 };
-
+/*/END OF BUTTONS/*/
 
 /*/Common Functions /*/
 
@@ -326,7 +357,7 @@ function checkPrinterStatus(finishedFunction)
 						if (head == '8')
 							statuses.push("INCORRECT PRINTHEAD");
 						if (pause == '1')
-							statuses.push("PRINTER PAUSED");
+							statuses.push(" PRINTER PAUSED");
 						if ((!ok) && (statuses.Count == 0))
 							statuses.push("Error: Unknown Error");
 						finishedFunction(statuses.join());
@@ -334,19 +365,18 @@ function checkPrinterStatus(finishedFunction)
 };
 
 function readPrinterStatus()
-		{
-                  
+		{                  
 			checkPrinterStatus( function (text){
 			if (text == "Ready to Print")
 		{
-			$('#printer_details').show();
-			document.getElementById("error_div").style.color = "green";
+			$('#printer_details').show();		
+			document.getElementById("error_div").style.backgroundColor = "#9add00";
 			printerReady()
 		}
 		else
 		{
 			$('#printer_details').show();
-			document.getElementById("error_div").style.color = "red";
+			document.getElementById("error_div").style.backgroundColor =  "red";
 			printerError(text);
 
 
@@ -371,15 +401,13 @@ function showLoading(text)
 	$('#printer_select').hide();
 	$('#loading_message').text(text);
 	$('#printer_data_loading').show();
-	hidePrintForm();
-	
-	
+	hidePrintForm();	
 };
 
 function printComplete()
 {
 	hideLoading();
-	alert ("Request complete");
+	alert ("Sent Successfully!");
 }
 
 function hideLoading()
@@ -411,8 +439,6 @@ function changePrinter()
 	}
 	$('#printer_select').show();
 	onPrinterSelected();
-
-	
 }
 
 function onPrinterSelected()
@@ -428,12 +454,10 @@ function showErrorMessage(text)
 function printerError(text)
 {
 	showErrorMessage(text);
-
 }
 
 function showMessage(text)
 {
-	
 	$('#error_div').show();
 	$('#error_message').html(text);
 }
@@ -445,10 +469,8 @@ function printerReady(text)
 
 function trySetupAgain()
 {
-	
 	$('#error_div').hide();
 	setup_web_print();
-
 }
 
 /*/ V3 */
@@ -464,7 +486,7 @@ function getConfig(){
 function writeToSelectedPrinter(dataToWrite)
 {
 	selected_printer.send(dataToWrite, undefined, errorCallback);
-	if (document.getElementById('write_text').value === undefined)
+	if (document.getElementById('write_text').value == "")
 	{
 		alert ("Type some code")
 	}	
@@ -473,7 +495,7 @@ var readCallback = function(readData)
 {	
 	if(readData === undefined || readData === null)
 	{
-		alert("No Response from Device");
+		alert("ERROR! No Response from Device");
 	}
 	else
 	{
@@ -486,8 +508,6 @@ var errorCallback = function(errorMessage){
 }
 function readFromSelectedPrinter()
 {
-
-	selected_printer.read(readCallback, errorCallback);
-	
+	selected_printer.read(readCallback, errorCallback);	
 }
 
