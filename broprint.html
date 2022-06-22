@@ -1,105 +1,64 @@
 <html>
-<title>Zebra Utility Links</title>
+<title>Zebra Browser Print Technical Support example</title>
 <head>
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="zlogo1.ico">
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="scripts/BrowserPrint-3.0.216.min.js"></script>
-<script type="text/javascript" src="scripts/DevDemo.js"></script>
+<link rel="icon" href="zlogo.ico">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/BrowserPrint-3.0.216.min.js"></script>
+<script type="text/javascript" src="js/DevDemo.js"></script>
 <script type="text/javascript"> $(document).ready(setup_web_print);
 </script>
 </head>
-
 <body onLoad="readPrinterStatus();">
-<div id=banner>
-<img src="res/zebralogo.png" id=img_zebra1 alt="Zebra Black Logo"></img><a id="title" class= "button-top" href="https://www.zebra.com/us/en/" target="_blank"><p>Utility Links</p></a>	
-</div>
-
 <center>
 <div  id="printcontrols">
 <div id="BrowserPrint">
-<a id="refresh-button" class=v onclick="setup_web_print()"><h1>Browser Print</h1></a>
+<a id="refresh-button" class=v onclick="setup_web_print()"><h1>Technical Support EMEA Browser Print Example</h1></a>
 <div id="printer_data_loading" style="display:none"><span id="loading_message"><p>Loading Printer Details...</p></span><br/></div>
 <div id="main">
-<div id="error_div"><p id="error_message"></p></div>
 <div id="printer_select" style="display:block">
-<h2>Available Printers: <select id="printers"></select> <button id="status-button" class="button-browserprint" onClick='readPrinterStatus();'>STATUS</button></h2>
-<div id="printer_details" style="display:none">
-<p id="selected_printer">No data</p>
-</div>
-</div>
-</div>
-</br>
-<div id="BrowserPrintControls"><h2>Printer Controls </h4>
+<p id="selected_printer">No data</p><h2>Select a printer: <select id="printers"></select></h2>
+
+<div id="error_div"><p id="error_message">STAUS: IDLE...</p></div>
+<div id="printer_details" style="display:none"></br>
+<button id="status-button" class="button-browserprint" onClick='readPrinterStatus();'>STATUS</button>
+<div id="BrowserPrintControls">
+<h1>Printer Controls </h1>
 <button class="button-browserprint" onclick="Feed()">Feed</button>
 <button class="button-browserprint" onclick="Pause()">Pause</button>
 <button class="button-browserprint" onclick="Cancel()">Cancel</button>
-</br></br>
 <button class="button-browserprint" onclick="QuickTest()">Quick Test</button>
 <button class="button-browserprint" onclick="Calibrate()">Calibrate</button>
 <button class="button-browserprint" onclick="Reset()">Reset Printer</button>
-</div>
-<div id="BrowserPrintMediaSettings">
-<h2> Media Settings </h2>
 <button class="button-browserprint" onclick="SetToBlackMark()">Black Mark</button>
 <button class="button-browserprint" onclick="SetToGap()">Gap/Notch</button>
 <button class="button-browserprint" onclick="SetToJournal()">Journal</button>
-</br></br>
 <button class="button-browserprint" onclick="SetToThermalTransfer()">Thermal Transfer</button>
 <button class="button-browserprint" onclick="SetToDirectThermal()">Direct Thermal</button>
 </div>
-</br></br>
-<div id="BrowserPrintCommandsConsole">
-<h2>Commands Console</h2>
+</div>
+</div>
+</div>
+<div style ="float:left" id="BrowserPrintCommandsConsole">
+<h1>Commands Console</h1>
 <center>
 <input class="textbox-browserprint" type="text" name="write_text" id="write_text">
-<input class="button-browserprint" value="Write" onclick="writeToSelectedPrinter(document.getElementById('write_text').value), readFromSelectedPrinter()">
+<input class="button-browserprint" type="button" value="Send" onclick="writeToSelectedPrinter(document.getElementById('write_text').value + '<CR>' + '<CR>' + '<LF>'), readFromSelectedPrinter()">
+
+<!---TO AVOID INCLUDING carriage return IN THE TEXTBOX USE THIS LINE<input class="button-browserprint" type="button" value="Send" onclick="writeToSelectedPrinter(document.getElementById('write_text').value + '<CR>'), readFromSelectedPrinter()">-->
 </div>
+<h1> Answer from printer: </h1>
+<h2 id="results"></h2>
 <br/><br/>
 
-
-<p id="results"></p>
-</center>
-
-
 </div>
-<!-- PENDING INTEGRATION TO GITHUB
-<form  method="post"></br>	
-<h3>HTTP POST</h3>
-Printing to: <input type="text" id="ip_addr" autocomplete="on" value="0.0.0.0" style="text-align:center"></br>
-<p>ZPL Code:</p>
-<input type="text" value="^XA^FO50,50^A0N, 50,50^FDZebra - Test^FS^XZ" id="textbox">
-</form>
-<center>
-<button class="action-button"onClick='printLabel();'>Send label</button>
-<button class="action-button"onClick='printConfigLabel();'>Print Configuration Label</button>
-<button class="action-button"onClick='ResetPrinter();'>Reset Printer</button>
-<button class="action-button"onClick='FeedLabel();'>Feed Label</button>
-<button class="action-button"onClick='FourBySix();'>4x6 Test</button>
-<a class="action-button" href="pictures/128.gif" target="_blank">C128/ZPL Sample</button></a>
-<a class="action-button" href="pictures/label1.gif" target="_blank">QR/ZPL Sample</button></a></br>
-
-<input type="text" id="Label-Length" value='! U1 setvar "zpl.label_length" "406"' style="text-align:center">
-<input type="text" id="Print-Width" value='! U1 setvar "ezpl.print_width" "3"' style="text-align:center">
--->
-	
 </center>
-
 </div>
-
+</center>
+</div>
 </body>
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="scripts/BrowserPrint-3.0.216.min.js">$(document).ready(setup_web_print);</script>
-		<script type="text/javascript" src="scripts/DevDemo.js"></script>
-		
-		<script type="text/javascript" src="scripts/clockncopy.js"></script>
-		<script type="text/javascript" src="scripts/4x6.js"></script>
-		<script type="text/javascript" src="scripts/configlabel.js"></script>
-		<script type="text/javascript" src="scripts/textbox.js"></script>
-		<script type="text/javascript" src="scripts/feed.js"></script>
-		<script type="text/javascript" src="scripts/reset.js"></script>
-		<script type="text/javascript" src="scripts/labelsize.js"></script>
-		<script type="text/javascript" src="scripts/status.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </script>
