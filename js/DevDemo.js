@@ -184,18 +184,12 @@ function Calibrate()
 	showLoading("Printing...");
 	var zpl = "~JC"
 	checkPrinterStatus( function (text){
-		if (text == "Ready to Print")
-		{
+	
 			selected_printer.send(zpl);
 				$('#printer_details').show();
 	        $('#printer_select').show();
 			alert("CALIBRATING PLEASE WAIT...");
-		}
-		else
-		{
-			alert("ERROR, REVIEW YOUR SETTINGS");
-			printerError(text);		
-		}
+		
 	});
 	
 };
