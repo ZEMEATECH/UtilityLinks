@@ -156,26 +156,20 @@ iframe
 
 .worldclock
 {	
-	margin-left:20;
+	margin-left:-100;
 	font-size:10pt;
-	margin-top: -870px;	
-	width:19%;
+	margin-top: -900px;	
+	width:14%;
 	float:right;
 	border-style:none;
 	/*/position: absolute;/*/
-	padding-left: 20px;
-	background: rgb(0,123,176);
-	background: linear-gradient(180deg, rgba(0,123,176,0.2) 50%, rgba(255,255,255,0) 100%);
-	border-right-style:solid;
-	border-bottom-style:solid;
-	border-color:rgba( 255, 255, 255, 0.1);
-	border-radius: 10px;
-	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.5);	
+	padding-left: 10px;
+	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.3);	
+	opacity:0.9;
 }
 #shortdate
 {
 	color:gold;
-	text-align:center;
 }
 footer
 {
