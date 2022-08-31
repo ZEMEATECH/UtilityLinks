@@ -1,7 +1,10 @@
 <html>
 <title>Zebra Utility Links</title>
 <link rel="icon" href="zlogo.ico">
-<head><link rel="stylesheet" href="css/style.css"></head>
+<head>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/vanilla-calendar.min.css">
+</head>
 <body onload="gettime()">
 <div class= "top-banner">
 <a class= "button-top" href="https://secure3.entertimeonline.com/ta/6029195.hcm?rnd=TND&showAdmin=1&Ext=login&sft=TIOZTLYMGA" target="_blank">Kronos </a>
@@ -52,18 +55,29 @@
 </center>
 </div>
 <div class="worldclock">
-<h1 id="shortdate"></h1>
+
 <h2>Brno: <span class="clocks" data-timezone="Europe/Berlin"></span></h2>
 <h2>Chicago: <span class="clocks" data-timezone="America/Chicago"></span></h2>
 <h2>New York: <span class="clocks" data-timezone="America/New_York"></span></h2>
 <h2>Penang: <span class="clocks" data-timezone="Asia/Shanghai"></span></h2>
+</div>
 
+
+<div id="calendar">
+<div class="vanilla-calendar"></div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const calendar = new VanillaCalendar('.vanilla-calendar');
+calendar.init();
+});
+</script>
 </div>
 <footer>
 <p>Created by HR2598</p>
 </footer>
 
 </body>
+<script type="text/javascript" src="js/vanilla-calendar.min.js" defer></script>
 <script type="text/javascript" src="js/clocks.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
