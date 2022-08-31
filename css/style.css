@@ -82,9 +82,9 @@ iframe
 	border-right-style:solid;
 	border-bottom-style:solid;
 	border-color:rgba( 255, 255, 255, 0.1);
-	border-radius: 10px;
-	padding:5px;
+	border-radius: 10px;	
 	width:20%;
+	height:50%;
 	opacity:0.7;
 }
 #menu-board:hover
@@ -93,6 +93,8 @@ iframe
 }
 .button-right
 {	
+
+	margin:50px;
 	font-size:30pt;		
 	cursor:pointer;
 }
@@ -158,7 +160,7 @@ iframe
 {	
 	margin-left:-100;
 	font-size:10pt;
-	margin-top: -900px;	
+	margin-top: -650px;	
 	width:14%;
 	float:right;
 	border-style:none;
@@ -180,7 +182,18 @@ footer
 	 float:right;
 	 opacity:0.7;
  }
+ 
+ /*/Calendar/*/
+ 
+ #calendar
+ {
+	 float:right;
+	 margin-top:-880px;
+	 margin-right:20px;
+ }
+ 
 
+/*/ BROWSER PRINT!/*/
 #BrowserPrintControls
 {
 	width:100%;
@@ -284,7 +297,10 @@ border-radius: 100px;
  {
  #00587e, dark blue
  #007bb0, blue
+ #08b5ff, light blue
  #9add00 green
+ #289b95 teal
+ #d77702 dark orange
  gold.
  Classes go with . and ID with #
  }
