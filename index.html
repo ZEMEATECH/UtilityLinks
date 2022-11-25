@@ -1,105 +1,146 @@
-<html>
-<title>Zebra Utility Links</title>
-<link rel="icon" href="zlogo.ico">
-<head>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/vanilla-calendar.min.css">
-</head>
-<body onload="gettime()">
-<div class= "top-banner">
-<a class= "button-top" href="https://secure3.entertimeonline.com/ta/6029195.hcm?rnd=TND&showAdmin=1&Ext=login&sft=TIOZTLYMGA" target="_blank">Kronos </a>
-<a class= "button-top" href="https://zebra.lightning.force.com/" target="_blank">Sales Force </a>
-<a class= "button-top" href="https://cxone.niceincontact.com/" target="_blank"> InContact </a>
-<a class= "button-top" href="https://supportcommunity.zebra.com" target="_blank"> Support Community </a>
-<a class= "button-top" href="https://apps.powerapps.com/play/05feea8b-025a-46cf-bd3c-9e5f826a5675?tenantId=4d3d260a-9c40-4306-8dac-0d64717039ec&source=email&hint=3cad1fe2-9a68-47e4-8a28-6890c283c951&skipAppMetadata=true" target="_blank"> Shipment App</a>
-<a class= "button-top" href="https://www.zebra.com/us/en/forms/license-reset-request.html" target="_blank"> License Reset Form</a>
-<a class= "button-top" href="useful/nontech.txt" target="_blank"> EMEA InContact Queues</a>
-<a class= "button-top" href="https://www.zebra.com/us/en/support-downloads/request-repair.html" target="_blank"> Request RMA</a>
-<a class= "button-top" href="https://zebra-my.sharepoint.com/:x:/r/personal/vnt867_zebra_com/Documents/AAA%20Updated/EMEA%20AIT%20Tech%20Team/EMEA_TECH_AIT_SHIFT_PLAN.xlsx?d=w527199cdcfd64883b17ad5a1815f9b04&csf=1&e=OSZWJG" target="_blank"> Shift Plan</a>
-<img src="res/zebralogo.png" id=img_zebra1 alt="Zebra Black Logo" href="https://www.zebra.com/us/en/" target="_blank"></img><a id="title" class= "button-top" ></a>	
-</div>
-<center>
-<div id=menu-board>
-    <table>	
-	<tr><th><a class= "button-right" onClick='showSoftware();'>Software</a></th></tr>
-	<tr><th><a class= "button-right" onClick='showTabletop();'>Tabletop</a></th></tr>
-	<tr><th><a class= "button-right" onClick='showMobile();'>Mobile</a></th>
-	<tr><th><a class= "button-right" onClick='showCard();'>Card</a></th>
-	<tr><th><a class= "button-right" onClick='showDesktop();'>Desktop</a></th>
-	<tr><th><a class= "button-right" onClick='showKiosk();'>Kiosk</a></th>
-	<tr><th><a class= "button-right" onClick='showLinks();'>Links</a></th>
-	<tr><th><a class= "button-right" onClick='showDocuments();'>Articles</a></th>
-	<tr><th><a class= "button-right" onClick='showProg();'>Programming</a></th>
-	</tr>
-	</table>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Password Protected</title>
 
-<div id=board>
-	<div id=showProg style= display:block;><iframe src="prog.html"></iframe></div>
-	<div id=showKiosk style= display:none;><iframe src="kiosk.html"></iframe></div>
-	<div id=showTabletop style= display:none;><iframe src="tabletop.html"></iframe></div>
-	<div id=showMobile style= display:none;><iframe src="mobile.html"></iframe></div>
-	<div id=showCard style= display:none;><iframe src="card.html"></iframe></div>
-	<div id=showDesktop style= display:none;><iframe src="desktop.html"></iframe></div>
-	<div id=showLinks style= display:none;><iframe src="links.html"></iframe></div>
-	<div id=showDocuments style= display:none;><iframe src="documents.html"></iframe></div>
-	<div id=showSoftware style= display:none;><iframe src="software.html"></iframe></div>
-</div>
-</center>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
 
-<div class="left-board">
-	<center>
-	<a class="button-medium" href="broprint.html" target="_blank"><li> Browser Print</li></a></br>
-	<a class="button-medium" href="httppost.html" target="_blank"><li> HTTP POST</li></a></br>
-	<a class="button-medium" href="manuals/scanandprint.pdf" target="_blank"><li> Scan & Print</li></a></br>
-</center>
-</div>
-<div class="worldclock">
+        <style>
+            *,
+            *:after,
+            *:before {
+                box-sizing: border-box;
+            }
+            body,
+            html {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                font-weight: 300;
+                font-size: 16px;
+                background: #f2f2f2;
+                color: #2D3737;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100%;
+            }
 
-<h2>Brno: <span class="clocks" data-timezone="Europe/Berlin"></span></h2>
-<h2>Chicago: <span class="clocks" data-timezone="America/Chicago"></span></h2>
-<h2>New York: <span class="clocks" data-timezone="America/New_York"></span></h2>
-<h2>Penang: <span class="clocks" data-timezone="Asia/Shanghai"></span></h2>
-</div>
+            .protected {
+                background: #fff;
+                -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+                box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+                border-radius: 3px;
+                min-width: 500px;
 
+            }
+            .protected__content {
+                padding: 24px 28px;
+            }
+            .protected__content__heading {
+                font-size: 16px;
+                font-weight: 500;
+                margin: 0 0 12px;
+                line-height: 1;
+            }
+            .protected__alert {
+                display: none;
+                border-bottom: 1px solid transparent;
+                border-radius: 3px 3px 0 0;
+                padding: 12px 14px;
+                color: #a94442;
+                background-color: #f2dede;
+                border-color: #ebccd1;
+            }
+            .protected__content__input {
+                display: block;
+                border: solid 1px #ccc;
+                padding: 12px 14px;
+                -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+                box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+                font-size: 16px;
+                width: 100%;
+                border-radius: 3px;
 
-<div id="calendar">
-<div class="vanilla-calendar"></div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-const calendar = new VanillaCalendar('.vanilla-calendar');
-calendar.init();
-});
-</script>
-</div>
-<footer>
-<p>Created by HR2598</p>
-</footer>
+                margin-bottom: 12px;
+            }
+            .protected__content__input:focus {
+                outline: none;
+                border-color: #228843;
+            }
+            .protected__content__btn {
+                background-color: #228843;
+                border-radius: 3px;
+                cursor: pointer;
+                border: none;
+                color: #fff;
+                padding: 12px 14px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                font-weight: 500;
+                font-size: 16px;
 
-</body>
-<script type="text/javascript" src="js/vanilla-calendar.min.js" defer></script>
-<script type="text/javascript" src="js/clocks.js"></script>
-<script type="text/javascript" src="js/date.js"></script>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/BrowserPrint-3.0.216.min.js">$(document).ready(setup_web_print);</script>
-<script type="text/javascript" src="js/DevDemo.js"></script>
-<script type="text/javascript" src="js/showProg.js"></script>
-<script type="text/javascript" src="js/showSoftware.js"></script>
-<script type="text/javascript" src="js/showDocuments.js"></script>
-<script type="text/javascript" src="js/showLinks.js"></script>
-<script type="text/javascript" src="js/showDesktop.js"></script>
-<script type="text/javascript" src="js/showCard.js"></script>
-<script type="text/javascript" src="js/showMobile.js"></script>
-<script type="text/javascript" src="js/showKiosk.js"></script>
-<script type="text/javascript" src="js/showTabletop.js"></script>
-<script type="text/javascript" src="js/clockncopy.js"></script>
-<script type="text/javascript" src="js/4x6.js"></script>
-<script type="text/javascript" src="js/configlabel.js"></script>
-<script type="text/javascript" src="js/textbox.js"></script>
-<script type="text/javascript" src="js/feed.js"></script>
-<script type="text/javascript" src="js/reset.js"></script>
-<script type="text/javascript" src="js/labelsize.js"></script>
-<script type="text/javascript" src="js/status.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+            }
+            .protected__content__btn:hover {
+                background-color: #1C6D36;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="protected">
+            <div class="protected__alert" data-id="alert">You entered the wrong password</div>
+            <div class="protected__content">
+                <h1 class="protected__content__heading">You need a password to continue</h1>
+                <input class="protected__content__input" data-id="password" type="password" placeholder="password"/>
+                <button data-id="button" type="button" class="protected__content__btn">Continue</button>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
+        <script type="text/javascript">
+            "use strict"
+            var button = document.querySelectorAll('[data-id="button"]')
+            var password = document.querySelectorAll('[data-id="password"]')
+
+            function login(secret) {
+                var hash = sha1(secret)
+                var url = hash + "/index.html"
+                var alert = document.querySelectorAll('[data-id="alert"]')
+
+                var request = new XMLHttpRequest()
+                request.open('GET', url, true)
+
+                request.onload = function () {
+                    if (request.status >= 200 && request.status < 400) {
+                        window.location = url
+                    } else {
+                        parent.location.hash = hash
+                        alert[0].style.display = 'block'
+                        password[0].setAttribute('placeholder', 'Incorrect password')
+                        password[0].value = ''
+                    }
+                }
+                request.onerror = function () {
+                    parent.location.hash = hash
+                    alert[0].style.display = 'block'
+                    password[0].setAttribute('placeholder', 'Incorrect password')
+                    password[0].value = ''
+                }
+                request.send()
+            }
+
+            button[0].addEventListener("click", function () {
+                login(password[0].value)
+            })
+
+            document.onkeydown = function (e) {
+                e = e || window.event
+                if (e.keyCode == 13) {
+                    login(password[0].value)
+                }
+            }
+        </script>
+    </body>
 </html>
