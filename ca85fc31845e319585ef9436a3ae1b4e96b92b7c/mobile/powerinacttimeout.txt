@@ -1,0 +1,11 @@
+Set Power Inactivity Time Out
+
+! U1 setvar "power.inactivity_timeout" "1200"
+! U1 do "device.reset" "" 
+
+This would set the Inactivity Timeout to 1200 seconds.
+ A lot of environments require that the printer never power down
+(this will consume more battery power),the command for this is below:
+
+! U1 setvar "power.inactivity_timeout" "0"
+! U1 do "device.reset" "" 

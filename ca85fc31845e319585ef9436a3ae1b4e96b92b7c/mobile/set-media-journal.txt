@@ -1,0 +1,30 @@
+Gap Media:
+
+! U1 setvar "media.type" "label"
+
+! U1 setvar "media.sense_mode" "gap"
+
+Black Mark Media:
+
+! U1 setvar "media.type" "label"
+
+! U1 setvar "media.sense_mode" "bar"
+
+Size and location of the black marks – 2.4mm to 11.0 mm long by at least 12.7 mm wide, centered on the media
+Black marks should be greater than 1.0 ODU (optical density 
+Journal (receipt) Media:
+
+! U1 setvar "media.type" "journal"
+
+Note:  The "media.sense_mode" command is not required with continuous journal media as the printer's media sensor is not being used to determine the correct position to stop print.  This function will be done by the specified label length within the print job.  
+
+ZPL command to include with above commands to actually have the printer feed and calibrate to the media:
+
+~jc^xa^jus^xz
+
+! U1 setvar "media.type" "journal"
+
+! U1 do "device.sensor_select" "reflective"
+! U1 setvar "ezpl.media_type" "continous" 
+! U1 setvar "media.sense_mode" "bar" 
+! U1 do "device.reset" ""
