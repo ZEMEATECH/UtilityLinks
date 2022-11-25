@@ -1,0 +1,4 @@
+! U1 setvar "power.dtr_power_off" "off"
+! U1 setvar"power.inactivity_timeout" "65535"
+! U1 setvar"power.inactivity_timeout_alt" "65535"
+! U1 do "device.reset" ""

@@ -1,0 +1,25 @@
+*** EMEA Non Tech Case Queues***
+
+* EMEA CCC Non Tech - France
+France, North Africa ( Morocco, Tunisia, Algeria), Central Africa ( Benin,Togo, Cameroon), Guadalupe, Reunion
+
+* EMEA CCC Non Tech - South
+Spain, Italy, Portugal, Greece, Malta, Cyprus, Canary Islands
+
+* EMEA CCC Non Tech - ISP 
+RU Speaking Countries, South African countries, South Africa, Middle East Countries
+
+* EMEA CCC Non Tech - Germany 
+Germany
+
+* EMEA CCC Nont Tech NCEE 
+Sweden, Norway, Denmark, Iceland, Poland, Germany, Austria, Switzerland, Luxemburg, Hungary, Czech Republic, Slovakia,
+Slovenia, Romania, Latvia, Lithuania, Estonia, Albania, Bosnia, Croatia, Serbia, Montenegro, Macedonia, Moldova
+
+* EMEA CCC Non Tech NL&BE
+Netherlands, Belgium
+
+EMEA CCC Non Tech UK
+United Kingdom, Ireland
+
+
