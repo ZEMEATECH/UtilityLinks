@@ -1,11 +1,12 @@
 body
 {
+	overflow:hidden;
 	font-family: "Arial", sans-serif;
 	background-image: url("../res/2brno.jpg");
 	background-size: cover;
 	color: white;
 	//*text-shadow: 2px 2px 4px black;*//
-	overflow:hidden;
+	
 }
 a:visited
 {
