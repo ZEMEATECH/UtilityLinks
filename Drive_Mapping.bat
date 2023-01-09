@@ -1,0 +1,1 @@
+\\zebra.lan\netlogon\03BusLogon.vbs
